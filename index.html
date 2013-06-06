@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Mdds by Distrotech</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Mdds</h1>
+          <h2>Mirror of https://code.google.com/p/multidimalgorithm/</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Distrotech/mdds/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Distrotech/mdds/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Distrotech/mdds" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p>Multi-Dimensional Data Structure (mdds)</p>
+
+<p>A collection of multi-dimensional data structure and indexing 
+algorithm.  </p>
+
+<h1>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h1>
+
+<p>This library implements the following data structure:</p>
+
+<pre><code>* flat segment tree 
+* segment tree
+* rectangle set
+* point quad tree
+* mixed type matrix
+</code></pre>
+
+<p>Segment Tree</p>
+
+<p>Segment tree is a balanced-binary-tree based data structure efficient 
+for detecting all intervals (or segments) that contain a given point.<br>
+The segments may overlap with each other.  The end points of stored 
+segments are not inclusive, that is, when an interval spans from 2 to 
+6, an arbitrary point x within that interval can take a value of 2 &lt;= 
+x &lt; 6.  </p>
+
+<p>Flat Segment Tree</p>
+
+<p>Flat segment tree is a variant of segment tree that is designed to 
+store a collection of non-overlapping segments.  This structure is 
+efficient when you need to store values associated with 1 dimensional 
+segments that never overlap with each other.  Like segment tree, 
+stored segments' end points are non-inclusive.  </p>
+
+<p>Rectangle Set</p>
+
+<p>Rectangle set stores 2-dimensional rectangles and provides an 
+efficient way to query all rectangles that contain a given point in 
+2-dimensional space.  It internally uses nested segment tree.  Each 
+rectangle is defined by two 2-dimensional points: the top-left and 
+bottom-right points, and the bottom-right point is non-inclusive.  For 
+instance, if a rectangle ranges from (x=2, y=2) to (x=10, y=20), then 
+a 2-dimension point A (x,y) is said to be inside that rectangle only 
+when 2 &lt;= x &lt; 10 and 2 &lt;= y &lt; 20.</p>
+
+<p>Point Quad Tree</p>
+
+<p>Point quad tree stores 2-dimensional points and provides an efficient 
+way to query all points within specified rectangular region.  </p>
+
+<p>Mixed Type Matrix</p>
+
+<p>Mixed type matrix (MTM) allows storage of elements of various types: 
+boolean, numeric, string, and empty types.  It also allows storage of 
+additional value associated with each element.  MTM allows two storage 
+back-ends: filled storage and sparse storage.  Filled storage 
+allocates memory for all elements at all times, whereas sparse storage 
+allocates memory only for elements having non-default values.  </p>
+
+<h1>
+<a name="how-to" class="anchor" href="#how-to"><span class="octicon octicon-link"></span></a>How-To</h1>
+
+<p>Please take a look at simple example files under the 'example' 
+directory on how to use these data structures.</p>
+
+<h1>
+<a name="api-incompatibility-note" class="anchor" href="#api-incompatibility-note"><span class="octicon octicon-link"></span></a>API Incompatibility Note</h1>
+
+<p>0.8.1 to 0.9.0</p>
+
+<p>multi_type_vector</p>
+
+<ul>
+<li>The number of template parameters in custom_block_func1,
+custom_block_func2 and custom_block_func3 have been reduced by half,
+by deducing the numerical block type ID from the block type
+definition directly.  If you use the older variant, simply remove
+the template arguments that are numerical block IDs.</li>
+</ul><p>0.7.1 to 0.8.0</p>
+
+<p>flat_segment_tree</p>
+
+<ul>
+<li>The search_tree() method in 0.8.0 returns std::pair instead of just returning bool as of 0.7.1.  If you use this
+method and relies on the return value of the old version, use the
+second parameter of the new return value which is equivalent of the
+previous return value.</li>
+</ul><p>0.4.0 to 0.5.0</p>
+
+<p>flat_segment_tree</p>
+
+<ul>
+<li>The search() method now returns ::std::pair.<br>
+This method previously returned only bool.  Use the second parameter of 
+the new return value which is equivalent of the previous return value.</li>
+</ul><h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>mdds is free software. You may copy, distribute, and modify it under
+the terms of the License contained in the file COPYING distributed
+with this package. This license is the same as the MIT/X Consortium
+license.</p>
+
+<h1>
+<a name="miscellaneous" class="anchor" href="#miscellaneous"><span class="octicon octicon-link"></span></a>Miscellaneous</h1>
+
+<p>Version detection</p>
+
+<p>When installing this library, file named VERSION that contains nothing 
+but the version number string gets installed in the document directory 
+(docdir).  This may be used to detect the version number of this 
+library via script.  </p>
+        </section>
+
+        <footer>
+          Mdds is maintained by <a href="https://github.com/Distrotech">Distrotech</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
