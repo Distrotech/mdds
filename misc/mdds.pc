@@ -3,5 +3,5 @@ includedir=${prefix}/include
 
 Name: mdds
 Description: A collection of multi-dimensional data structure and indexing algorithm
-Version: 0.11.1
+Version: 0.11.2
 Cflags: -I${includedir}
