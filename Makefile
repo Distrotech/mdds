@@ -241,12 +241,12 @@ install: $(HEADERS)
 	install -d $(DESTDIR)${datarootdir}/doc/${PACKAGE_TARNAME}
 	install -d $(DESTDIR)${prefix}/share
 	install -d $(DESTDIR)${prefix}/share/pkgconfig
-	install -m 644 -t $(DESTDIR)${prefix}/include/mdds ./$(INCDIR)/mdds/*.hpp
-	install -m 644 -t $(DESTDIR)${prefix}/include/mdds ./$(INCDIR)/mdds/*.inl
-	install -m 644 -t $(DESTDIR)${prefix}/include/mdds/compat ./$(INCDIR)/mdds/compat/*.hpp
-	install -m 644 -t $(DESTDIR)${prefix}/include/mdds/hash_container ./$(INCDIR)/mdds/hash_container/*.hpp
-	install -m 644 -t $(DESTDIR)${prefix}/share/pkgconfig $(MISCDIR)/mdds.pc
-	install -m 644 -t $(DESTDIR)${datarootdir}/doc/${PACKAGE_TARNAME} ./AUTHORS ./COPYING ./NEWS ./README ./VERSION
+	install -m 644 ./$(INCDIR)/mdds/*.hpp $(DESTDIR)${prefix}/include/mdds 
+	install -m 644 ./$(INCDIR)/mdds/*.inl $(DESTDIR)${prefix}/include/mdds 
+	install -m 644 ./$(INCDIR)/mdds/compat/*.hpp $(DESTDIR)${prefix}/include/mdds/compat 
+	install -m 644 ./$(INCDIR)/mdds/hash_container/*.hpp $(DESTDIR)${prefix}/include/mdds/hash_container 
+	install -m 644 $(MISCDIR)/mdds.pc $(DESTDIR)${prefix}/share/pkgconfig 
+	install -m 644 ./AUTHORS ./COPYING ./NEWS ./README ./VERSION $(DESTDIR)${datarootdir}/doc/${PACKAGE_TARNAME} 
 
 check: $(ALL_TESTS)
 
