@@ -246,7 +246,7 @@ install: $(HEADERS)
 	install -m 644 ./$(INCDIR)/mdds/compat/*.hpp $(DESTDIR)${prefix}/include/mdds/compat 
 	install -m 644 ./$(INCDIR)/mdds/hash_container/*.hpp $(DESTDIR)${prefix}/include/mdds/hash_container 
 	install -m 644 $(MISCDIR)/mdds.pc $(DESTDIR)${prefix}/share/pkgconfig 
-	install -m 644 ./AUTHORS ./COPYING ./NEWS ./README ./VERSION $(DESTDIR)${datarootdir}/doc/${PACKAGE_TARNAME} 
+	install -m 644 ./AUTHORS ./COPYING ./NEWS ./README.md ./VERSION $(DESTDIR)${datarootdir}/doc/${PACKAGE_TARNAME}
 
 check: $(ALL_TESTS)
 
